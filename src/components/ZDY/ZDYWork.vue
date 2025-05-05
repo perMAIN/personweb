@@ -9,7 +9,7 @@
         </header>
         <p>初步完成功能需求分析、数据库设计、UML设计和扫码demo</p>
         <!-- <img src="@/assets/img/works/twm.gif" alt="" /> -->
-        <video src="@/assets/img/works/twm.mp4" controls></video>
+        <!-- <video src="@/assets/img/works/twm.mp4" controls></video> -->
       </div>
     </div>
     <div class="box img2">
@@ -22,11 +22,11 @@
         <p>
           初步完成功能与流程分析、整个服务架构成型、初步做了用户与提高界面交互、打包完成0.0.1版本
         </p>
-        <video
+        <!-- <video
           src="@/assets/img/works/bdj.mp4"
           controls
           ref="videoElement"
-        ></video>
+        ></video> -->
       </div>
     </div>
     <div class="box main">
