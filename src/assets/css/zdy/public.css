@@ -1,0 +1,13 @@
+:root {
+    /* 颜色以#4B6360在mycolor.space找的 */
+    --back-color: #292929;
+    --card-color: #f1f0f5;
+    --shard-color: rgba(75, 99, 96, 0.25);
+    /* #4B6360 */
+    --main-font-color: #334B48;
+    --streng-font-clolor: #96B1AD;
+    --supple-font-color: #4B6360;
+    --but-color: #e8d231;
+    --shard-black-color: rgba(255, 255, 255, 0.25);
+    /* #C2DDD9 */
+}

@@ -1,0 +1,93 @@
+/* * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: linear-gradient(to top, #9795f0 0%, #fbc8d4 100%);
+}*/
+
+@import url("@/assets/css/zdy/public.css");
+
+.rains {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  /* 加上倒影 */
+  -webkit-box-reflect: below 1px linear-gradient(transparent, transparent, transparent, transparent, #0005);
+
+  & .cloud {
+    position: relative;
+    top: 20%;
+    /* 调整云朵垂直位置 */
+    left: 50%;
+    /* 水平居中 */
+    transform: translateX(-50%);
+    /* 确保完全居中 */
+    width: 480px;
+    /* 增大云朵宽度 */
+    height: 400px;
+    /* 增大云朵高度 */
+    background-image: url(../../cloud.png);
+    background-size: cover;
+    opacity: 0.7;
+
+    & .text {
+      position: absolute;
+      top: 420px;
+      /* 调整文字雨起始高度 */
+      left: 50%;
+      /* 水平居中 */
+      transform: translateX(-50%);
+      /* 确保完全居中 */
+      width: 320px;
+      /* 调整文字区域宽度 */
+      text-align: center;
+      line-height: 16px;
+      /* 增加行高 */
+      color: #fff;
+      text-shadow: 0 0 4px #fff, 0 0 12px #fff, 0 0 24px #fff;
+      animation: rain 1.2s linear forwards;
+      font-size: 8px;
+      /* 增大字体大小 */
+    }
+  }
+
+  & .xxcloud {
+    position: absolute;
+    left: 50%;
+    /* 水平居中 */
+    top: 20%;
+    /* 与主云朵对齐 */
+    transform: translateX(-50%);
+    /* 确保完全居中 */
+    width: 480px;
+    /* 与主云朵同宽 */
+    height: auto;
+  }
+}
+
+@keyframes rain {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+
+  80% {
+    transform: translateY(160px) scale(1);
+    /* 增加下落距离 */
+    opacity: 0.5;
+  }
+
+  100% {
+    transform: translateY(140px) scale(1.2);
+    /* 调整回弹距离 */
+    opacity: 0;
+  }
+}

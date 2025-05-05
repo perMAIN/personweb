@@ -1,0 +1,128 @@
+@import url("@/assets/css/zdy/public.css");
+
+.work {
+  position: relative;
+  top: 7%;
+  width: 80%;
+  height: 75vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  box-sizing: border-box;
+
+  & .img1 {
+    background-image: url("@/assets/img/QR.png");
+  }
+
+  & .img2 {
+    background-image: url("@/assets/img/BDJ.png");
+  }
+
+  & .box {
+    flex: 1;
+    height: 96%;
+    overflow: hidden;
+    transition: 0.5s;
+    margin: 0 9px;
+    box-shadow: 4.5px 4.5px 9px var(--shard-black-color);
+    border: 4.5px solid var(--card-color);
+    background-color: var(--card-color);
+    background-size: cover;
+    background-position: center;
+
+    /*& > img {
+      width: 200%;
+      height: 85%;
+      object-fit: cover;
+    }*/
+
+    & .text {
+      padding: 20px 34px;
+      opacity: 0;
+      color: rgb(255, 255, 255);
+      background-color: rgba(0, 0, 0, 0.5);
+
+      & header {
+        height: 33px;
+        font-size: 29px;
+        font-family: 华文中宋;
+        line-height: 29px;
+        font-weight: bold;
+        border-bottom: 0.9px solid white;
+
+        & .title {
+          display: inline-block;
+          height: 29px;
+          text-decoration: underline;
+          text-underline-offset: 4.5px;
+          text-decoration-thickness: 1.8px;
+        }
+
+        & .num {
+          margin-left: -8px;
+        }
+      }
+
+      & p {
+        margin: 13.5px 0;
+        font-size: 13.5px;
+      }
+
+      & video {
+        width: 80%;
+      }
+    }
+
+    &:not(.main):hover {
+      flex-basis: 80%;
+
+      & .text {
+        animation: appear 0.8s forwards 0.3s;
+      }
+    }
+
+    &:not(.main):hover>img {
+      height: 100%;
+    }
+  }
+
+  & .main {
+    flex-basis: 40%;
+
+    &>.textbox {
+      width: 100%;
+      height: 85%;
+      padding: 45px;
+      overflow-y: auto;
+      overflow-x: hidden;
+      word-wrap: break-word;
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      resize: none;
+      background-color: var(--back-color);
+      color: var(--supple-font-color);
+      letter-spacing: 3.6px;
+      line-height: 1.5;
+
+      & h1 {
+        font-size: 36px;
+        color: var(--card-color);
+        margin-bottom: 4.5px;
+      }
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+  }
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
