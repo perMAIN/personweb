@@ -316,5 +316,5 @@ export default {
 </script>
 
 <style scoped>
-@import url("@/assets/css/zdy/zdyArticle.less");
+@import url("@/assets/css/zdy/zdyArticle.css");
 </style>

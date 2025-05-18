@@ -1,0 +1,219 @@
+@import url("./public.css");
+
+.article {
+  display: block;
+  position: relative;
+  flex-direction: column;
+  width: 80%;
+  height: 75vh;
+  box-shadow: 0 0.175rem 0.35rem var(--shard-black-color);
+  background-color: var(--card-color);
+  color: var(--card-color);
+  overflow: hidden;
+  margin: 7vh auto 0;
+}
+
+.article .head {
+  position: relative;
+  width: 100%;
+  height: 33.33%;
+  background-color: #4b4c5a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.article .content {
+  position: relative;
+  width: 100%;
+  height: 66.67%;
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--card-color);
+}
+
+.article .content .left {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 40%;
+  left: 2%;
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.article .content .left:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.article .content .right {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 40%;
+  right: 2%;
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.article .content .right:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.article .content .arrow-icon {
+  display: block;
+  width: 20px;
+  height: 20px;
+  position: relative;
+}
+
+.article .content .arrow-left:before,
+.article .content .arrow-right:before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-top: 3px solid var(--supple-font-color);
+  border-right: 3px solid var(--supple-font-color);
+  top: 0;
+  left: 0;
+}
+
+.article .content .arrow-left:before {
+  transform: rotate(-135deg);
+}
+
+.article .content .arrow-right:before {
+  transform: rotate(45deg);
+}
+
+.article .content .main {
+  width: 300%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2%;
+  transition: 0.3s;
+}
+
+.article .content .main .article-box {
+  width: 80%;
+  height: 100%;
+  position: relative;
+  display: flex;
+}
+
+.article .content .main .article-box .left-column {
+  width: 45%;
+  height: 100%;
+  position: relative;
+  padding: 10px 15px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.article .content .main .article-box .left-column .page {
+  position: absolute;
+  top: -25%;
+  color: var(--card-color);
+  margin-bottom: 10px;
+}
+
+.article .content .main .article-box .left-column .page h2 {
+  font: 900 62px "";
+  color: var(--supple-font-color);
+  margin: 0;
+}
+
+.article .content .main .article-box .left-column .page span {
+  font: 400 42px "";
+  position: relative;
+  left: 8.5vh;
+  top: -4.5vh;
+  color: var(--streng-font-clolor);
+}
+
+.article .content .main .article-box .left-column .title {
+  position: relative;
+  top: 5vh;
+  width: 100%;
+}
+
+.article .content .main .article-box .left-column .title > * {
+  line-height: 1.2;
+  font-weight: bold;
+  color: var(--back-color);
+  margin: 12px 0;
+}
+
+.article .content .main .article-box .left-column .title h1 {
+  color: var(--supple-font-color);
+  font-size: 48px;
+}
+
+.article .content .main .article-box .left-column .title h4 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.article .content .main .article-box .left-column .title h5 {
+  font-size: 14px;
+}
+
+.article .content .main .article-box .right-column {
+  width: 55%;
+  height: 100%;
+  position: relative;
+  padding: 10px 15px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.article .content .main .article-box .right-column .article {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.article .content .main .article-box .right-column .article h2 {
+  margin-bottom: 12px;
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--supple-font-color);
+}
+
+.article .content .main .article-box .right-column .article p {
+  font-size: 11px;
+  height: 85%;
+  color: var(--back-color);
+  overflow-y: auto;
+  word-wrap: break-word;
+}
+
+.article .content .main .article-box .right-column .article p::-webkit-scrollbar {
+  display: none;
+  /* 隐藏滚动条 */
+}
+
+.article .content .main .article-box .right-column .article p img {
+  padding: 4px;
+  width: 50%;
+  height: auto;
+  display: block;
+  margin: 4px auto;
+} 
