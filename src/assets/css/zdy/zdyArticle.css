@@ -131,19 +131,24 @@
   top: -25%;
   color: var(--card-color);
   margin-bottom: 10px;
+  display: flex;
+  align-items: flex-end;
 }
 
 .article .content .main .article-box .left-column .page h2 {
-  font: 900 62px "";
+  font-weight: 900;
+  font-size: 62px;
   color: var(--supple-font-color);
   margin: 0;
+  line-height: 1;
 }
 
 .article .content .main .article-box .left-column .page span {
-  font: 400 42px "";
+  font-weight: 400;
+  font-size: 42px;
   position: relative;
-  left: 8.5vh;
-  top: -4.5vh;
+  margin-left: 10px;
+  margin-bottom: 10px;
   color: var(--streng-font-clolor);
 }
 

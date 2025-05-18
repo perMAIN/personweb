@@ -19,11 +19,11 @@
         <div class="article-box">
           <!-- 左侧列：标题和副标题 -->
           <div class="left-column">
-            <div class="page" :key="index">
-              <h2>{{ num }}</h2>
-              <span> / {{ total - 1 }}</span>
+            <div class="page" style="position: absolute; top: -25%; color: var(--card-color); margin-bottom: 10px; display: flex; align-items: flex-end;">
+              <h2 style="font-weight: 900; font-size: 62px; color: var(--supple-font-color); margin: 0; line-height: 1;">{{ num }}</h2>
+              <span style="font-weight: 400; font-size: 42px; position: relative; margin-left: 10px; margin-bottom: 10px; color: var(--streng-font-clolor);"> / {{ total - 1 }}</span>
             </div>
-            <div class="title" :key="index">
+            <div class="title" key="title-display">
               <h4>{{ articles[index].sub_title }}</h4>
               <h1>{{ articles[index].main_title }}</h1>
               <h5>{{ articles[index].explain }}</h5>
