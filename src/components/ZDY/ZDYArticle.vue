@@ -60,6 +60,24 @@ export default {
   data() {
     return {
       index: 0,
+      images: {
+        lqtzs: null,
+        qx: null,
+        dx: null,
+        jx: null,
+        xyms: null,
+        jqsj1: null,
+        sf: null,
+        dgb: null,
+        sm: null,
+        twm: null,
+        lqb: null,
+        oneplusx: null,
+        jz: null,
+        xm: null,
+        jd: null,
+        sj: null
+      },
       articles: [
         {
           sub_title: "2022至2025",
@@ -77,7 +95,7 @@ export default {
           sum_content: "22届广航职校云计算方向计应生",
           main_content:
             "在填报志愿的时候，锁定了32分段的专插本制度与计算机专业，且在了解不多下，误打误撞被广航录取，在之后学习规划，发现实践与经验来得更实在与有意义，放弃了升本计划，更注重提升编程水平。",
-          img_src: require("@/assets/img/article/lqtzs.jpg"),
+          img_src: "",
         },
         {
           sub_title: "2022-9-30",
@@ -86,7 +104,7 @@ export default {
           sum_content: "青年志愿者协会网宣部成员",
           main_content:
             "大一新生所面临的第一个选择，在心仪的社团中提高自身实践能力。而选择青协，受最开始入学作为志愿者的学长学姐影响下，倾心于青协，选择网宣部，因为高中并在校内的网络服务站的技术部工作，有一定的实践经验和兴趣，如ps海报制作或pr的视频处理。",
-          img_src: require("@/assets/img/article/qx.jpg"),
+          img_src: "",
         },
         {
           sub_title: "2022-10-10",
@@ -95,7 +113,7 @@ export default {
           sum_content: "帮助同学提供办理校园网或办理电信卡",
           main_content:
             "在学校刚与电信合作负责校园网下，需要为全校的人负责校园网办理，同时推销电信卡并给予办理，由于电信提供的业务不够完善,每周还需要对纸质办理的业务单用excel进行汇总。",
-          img_src: require("@/assets/img/article/dx.png"),
+          img_src: "",
         },
         {
           sub_title: "2022-10-30",
@@ -104,16 +122,16 @@ export default {
           sum_content: "与他人一起探讨学习编程",
           main_content:
             "在老师的推荐，也加入相应的兴趣类社团，计算机协会。在这里可以收获学长学姐一些经验之谈，或与其他同学一起探讨学习，且基于我们的学习进度，接受应对竞赛的相应培训。",
-          img_src: require("@/assets/img/article/jx.jpg"),
+          img_src: "",
         },
         {
           sub_title: "2022-11-30",
-          main_title: "“校园毛叔”",
-          explain: "“金点子” 项目申报书",
+          main_title: "校园毛叔",
+          explain: "金点子 项目申报书",
           sum_content: "初次独立完成项目计划书",
           main_content:
             "为准备“互联网+”打下基础举办的“金点子”创新赛，完成得还不够成熟，只是完成项目功能说明与团队环境等申报。",
-          img_src: require("@/assets/img/article/xyms.gif"), // 引用本地图片需要加上require，不然就是网络地址
+          img_src: "",
         },
         {
           sub_title: "2023-3-1",
@@ -122,7 +140,7 @@ export default {
           sum_content: "独立完成基础学习与判卷系统",
           main_content:
             "研究机器视觉老师招收学员，在自学python和opencv-python，完成基础图像处理如噪点处理等，再独立完成判卷系统；再之后老师的带领下研究如何精确读取薄布厚度，再到后来研究DeepLabv3读表获取读数。",
-          img_src: require("@/assets/img/article/jqsj1.gif"),
+          img_src: "",
         },
         {
           sub_title: "2023-4-20",
@@ -131,21 +149,21 @@ export default {
           sum_content: "通过选拔进入算法和数模培训",
           main_content:
             "在前期学长学姐帮助下，完成基础语法学习，通过人员筛选选拔制度，进入竞赛部，完成算法与数模的学习，准备之后的蓝桥杯与数学建模。",
-          img_src: require("@/assets/img/article/sf.gif"),
+          img_src: "",
         },
         {
           sub_title: "2023-6-20",
-          main_title: "“电工杯”数模",
-          explain: "“电工杯” 数据分析",
+          main_title: "电工杯数模",
+          explain: "电工杯 数据分析",
           sum_content: "人工智能对大学生学习影响的评价",
           main_content:
             "为准备之后的大学生数模，参加近期的“电工杯”赛，3人一组，但由于疫情感染，由我负责建模与模型分析，另一位成员负责论文撰写与资料整理。本次题目为“人工智能对大学生学习影响的评价”，就收集的数千数据的调差问卷做数据处理、辨析与预判。采用层次分析法计算权重选取客观系统的评价指标；模糊综合评价法（FCE）对评价指标数据整合构建评价指标体系；经过数据预处理、分析特征提取、基于回归分析等方法来建立模型；通过渗透度完成影响分析报告。获得省三。",
-          img_src: require("@/assets/img/article/dgb.gif"),
+          img_src: "",
         },
         {
           sub_title: "2023-7-1",
-          main_title: "“FBDL”",
-          explain: "动作判别计数 “互联网+”",
+          main_title: "FBDL",
+          explain: "动作判别计数 互联网+",
           sum_content: "热身模块的动作判别与计数",
           main_content:
             "在机器视觉老师推荐下，加入了前届牵头的足球项目，“FBDL”足球数智化项目——四大板块分别是基于机器视觉的足球智能培训系统，基于自适应的数据分析系统，基于运动积分的足球O2O商城平台，基于足球市场和赛事组织的足球战略联盟平台，主要负责热身模块如俯卧撑等的动作判别与计数。获得“互联网+”职教校二。",
@@ -158,25 +176,25 @@ export default {
           sum_content: "数模黄河水沙监测数据分析",
           main_content:
             "大学生数模选题——黄河水沙监测数据分析，3人一组，主负责建模之一，完成问题2与问题4的解决建模，问题2基于数据的长时间序列顺序标准变量特性，构建Mann−Kendall非参数检验分析数学模型；问题4先指数平滑法数据预处理，SARMIA模型效果分析，线性回归模型预测状态。获得省一。",
-          img_src: require("@/assets/img/article/sm.gif"),
+          img_src: "",
         },
         {
           sub_title: "2023-11-30",
           main_title: "软件设计",
-          explain: "软设 “摊维码”设计",
-          sum_content: "“摊维码”软件与UI设计",
+          explain: "软设 摊维码设计",
+          sum_content: "摊维码软件与UI设计",
           main_content:
             "自学软件设计，备战软考软件设计中级。且学以致用，协同他人完成了“摊维码”的功能需求分析、数据库设计、UML模型设计、UI设计等。完成ppt制作与项目书，在学院“起航杯”中获得银奖，“挑战杯”大学生创业赛校赛优秀奖，参加省赛。",
-          img_src: require("@/assets/img/article/twm.gif"),
+          img_src: "",
         },
         {
           sub_title: "2024-5-30",
-          main_title: "“蓝桥杯”",
+          main_title: "蓝桥杯",
           explain: "算法 JAVA程序设计",
-          sum_content: "“蓝桥杯”JAVA程序设计省赛",
+          sum_content: "蓝桥杯JAVA程序设计省赛",
           main_content:
             "在前期的算法基础下，基于自身的就业规划，加深java程序编写，报名了“蓝桥杯”的程序设计，整个寒假的备战过程，完成官网代表性题目。获得省级二等。",
-          img_src: require("@/assets/img/article/lqb.gif"),
+          img_src: "",
         },
         {
           sub_title: "2024-6-30",
@@ -185,7 +203,7 @@ export default {
           sum_content: "1+x网页程序中级开发师",
           main_content:
             "在大一通过1+x初级下，因前期六级与中级时间冲突，拖延至大二下学期1+x中级考试，主要考查php、myslq、axios等模块。",
-          img_src: require("@/assets/img/article/1+x.gif"),
+          img_src: "",
         },
         {
           sub_title: "2024-9-20",
@@ -194,7 +212,7 @@ export default {
           sum_content: "备战金砖云计算B模块",
           main_content:
             "2人一组报名了金砖职业技能大赛云计算赛项，我主要负责B模块的学习(前期也尝试A模块的解答)但只受限opensyack开课，主要通过自学，以解决样题问题为主要学习目标，深入较浅，比赛结果以25/50的排名获得省三。",
-          img_src: require("@/assets/img/article/jz.gif"),
+          img_src: "",
         },
         {
           sub_title: "2024-10-1",
@@ -203,7 +221,7 @@ export default {
           sum_content: "丰富自身项目实战经验",
           main_content:
             "为丰富自身简历或更让面试官了解自己，完善“摊维码”评论功能积攒java实战经验入springboot与mybatis等的使用；着手“锦观世界”完成毕设工作，基于机器视觉完成八段锦的跟练服务；vue完善个人网页展现自己。同时利用所选的数据爬取分析，筛选适合自己的岗位，倾注工作准备。",
-          img_src: require("@/assets/img/article/xm.jpg"),
+          img_src: "",
         },
         {
           sub_title: "2022-2024",
@@ -212,7 +230,7 @@ export default {
           sum_content: "验收课程学习报告",
           main_content:
             "在自学除关注的内容外，也不落下在校课程学习，在校期以全方面发展为主，工作期以某个研究发现前进；如下为个人绩点，包括office、c语言、linux基础、web、python、大英高数、java、网络基础、mysql、php、数据结构与算法、VMware云平台运维、opstack、vue、excel数据分析、容器运维、网络爬虫、python数据分析、计算机英语等学科学习。",
-          img_src: require("@/assets/img/article/jd.jpg"),
+          img_src: "",
         },
         {
           sub_title: "2022-2024",
@@ -221,10 +239,14 @@ export default {
           sum_content: "学习之外是休息",
           main_content:
             "值得一提，高中起有设计方面的兴趣，以下呈现曾经做过的设计；日常也希望游玩，了解其他地域的风土人情；运动偏爱羽毛球，日常跑步或瑜伽等有氧运动提高身体素质；同时欣赏一些优秀文艺作品，包括影视、动漫、音乐；热爱且积极生活。",
-          img_src: require("@/assets/img/article/sj.jpg"),
+          img_src: "",
         },
       ],
     };
+  },
+  created() {
+    // 预加载图片
+    this.loadImages();
   },
   computed: {
     total() {
@@ -236,6 +258,47 @@ export default {
     },
   },
   methods: {
+    loadImages() {
+      try {
+        // 在这里预加载所有图片
+        this.images.lqtzs = require("@/assets/img/article/lqtzs.jpg");
+        this.images.qx = require("@/assets/img/article/qx.jpg");
+        this.images.dx = require("@/assets/img/article/dx.png");
+        this.images.jx = require("@/assets/img/article/jx.jpg");
+        this.images.xyms = require("@/assets/img/article/xyms.gif");
+        this.images.jqsj1 = require("@/assets/img/article/jqsj1.gif");
+        this.images.sf = require("@/assets/img/article/sf.gif");
+        this.images.dgb = require("@/assets/img/article/dgb.gif");
+        this.images.sm = require("@/assets/img/article/sm.gif");
+        this.images.twm = require("@/assets/img/article/twm.gif");
+        this.images.lqb = require("@/assets/img/article/lqb.gif");
+        this.images.oneplusx = require("@/assets/img/article/1+x.gif");
+        this.images.jz = require("@/assets/img/article/jz.gif");
+        this.images.xm = require("@/assets/img/article/xm.jpg");
+        this.images.jd = require("@/assets/img/article/jd.jpg");
+        this.images.sj = require("@/assets/img/article/sj.jpg");
+        
+        // 为文章设置图片路径
+        this.articles[1].img_src = this.images.lqtzs;
+        this.articles[2].img_src = this.images.qx;
+        this.articles[3].img_src = this.images.dx;
+        this.articles[4].img_src = this.images.jx;
+        this.articles[5].img_src = this.images.xyms;
+        this.articles[6].img_src = this.images.jqsj1;
+        this.articles[7].img_src = this.images.sf;
+        this.articles[8].img_src = this.images.dgb;
+        this.articles[10].img_src = this.images.sm;
+        this.articles[11].img_src = this.images.twm;
+        this.articles[12].img_src = this.images.lqb;
+        this.articles[13].img_src = this.images.oneplusx;
+        this.articles[14].img_src = this.images.jz;
+        this.articles[15].img_src = this.images.xm;
+        this.articles[16].img_src = this.images.jd;
+        this.articles[17].img_src = this.images.sj;
+      } catch (error) {
+        console.error('图片加载失败:', error);
+      }
+    },
     add() {
       this.index++;
       if (this.index >= this.articles.length) {
