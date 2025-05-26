@@ -1,19 +1,24 @@
 <template>
   <div class="work">
     <div class="box img1">
-      <!-- <img src="../../assets/img/1.jpg" /> -->
       <div class="text">
         <header>
           <span class="title">NO.</span>
           <span class="num">1</span>
         </header>
         <p>初步完成功能需求分析、数据库设计、UML设计和扫码demo</p>
-        <!-- <img src="@/assets/img/works/twm.gif" alt="" /> -->
-        <!-- <video src="@/assets/img/works/twm.mp4" controls></video> -->
+        <iframe
+          src="https://player.bilibili.com/player.html?bvid=BV1YyjSzWEAq&autoplay=0"
+          scrolling="no"
+          border="0"
+          frameborder="no"
+          framespacing="0"
+          allowfullscreen="true"
+          style="width:150%;max-width:400px;height:335px;"
+        ></iframe>
       </div>
     </div>
     <div class="box img2">
-      <!-- <img src="../../assets/img/2.jpg" /> -->
       <div class="text">
         <header>
           <span class="title">NO.</span>
@@ -22,11 +27,15 @@
         <p>
           初步完成功能与流程分析、整个服务架构成型、初步做了用户与提高界面交互、打包完成0.0.1版本
         </p>
-        <!-- <video
-          src="@/assets/img/works/bdj.mp4"
-          controls
-          ref="videoElement"
-        ></video> -->
+        <iframe
+          src="https://player.bilibili.com/player.html?bvid=BV1ekjSzRE5p&autoplay=0"
+          scrolling="no"
+          border="0"
+          frameborder="no"
+          framespacing="0"
+          allowfullscreen="true"
+          style="width:100%;max-width:400px;height:335px;"
+        ></iframe>
       </div>
     </div>
     <div class="box main">
