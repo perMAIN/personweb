@@ -89,33 +89,6 @@ export default {
           img_src: "",
         },
         {
-          sub_title: "2022-9-5",
-          main_title: "开篇",
-          explain: "入学 广航 大一新生",
-          sum_content: "22届广航职校云计算方向计应生",
-          main_content:
-            "在填报志愿的时候，锁定了32分段的专插本制度与计算机专业，且在了解不多下，误打误撞被广航录取，在之后学习规划，发现实践与经验来得更实在与有意义，放弃了升本计划，更注重提升编程水平。",
-          img_src: "",
-        },
-        {
-          sub_title: "2022-9-30",
-          main_title: "青协网宣部",
-          explain: "青协 宣传部 志愿者",
-          sum_content: "青年志愿者协会网宣部成员",
-          main_content:
-            "大一新生所面临的第一个选择，在心仪的社团中提高自身实践能力。而选择青协，受最开始入学作为志愿者的学长学姐影响下，倾心于青协，选择网宣部，因为高中并在校内的网络服务站的技术部工作，有一定的实践经验和兴趣，如ps海报制作或pr的视频处理。",
-          img_src: "",
-        },
-        {
-          sub_title: "2022-10-10",
-          main_title: "飞young",
-          explain: "服务校园网 电信 业务办理",
-          sum_content: "帮助同学提供办理校园网或办理电信卡",
-          main_content:
-            "在学校刚与电信合作负责校园网下，需要为全校的人负责校园网办理，同时推销电信卡并给予办理，由于电信提供的业务不够完善,每周还需要对纸质办理的业务单用excel进行汇总。",
-          img_src: "",
-        },
-        {
           sub_title: "2022-10-30",
           main_title: "计协编程部",
           explain: "机协 编程部 学习",
@@ -233,6 +206,15 @@ export default {
           img_src: "",
         },
         {
+          sub_title: "2022-9-5",
+          main_title: "大学生活",
+          explain: "广航 青协宣传部 电信业务办理",
+          sum_content: "22届广航职校云计算方向计应生",
+          main_content:
+            "我的开篇，32分段的专插本制度与计算机专业，在之后学习规划，选择放弃了升本计划，更注重提升编程水平。大学生活下加入青年志愿协会的网宣部，在高中并在校内的网络服务站的技术部工作影响下，有一定的实践经验和兴趣，如ps海报制作或pr的视频处理。还有兼职的电信业务服务，推销工作、业务处理、数据整合，赚钱man",
+          img_src: "",
+        },
+        {
           sub_title: "2022-2024",
           main_title: "丰富life",
           explain: "其他 设计 游玩",
@@ -277,24 +259,23 @@ export default {
         this.images.xm = require("@/assets/img/article/xm.jpg");
         this.images.jd = require("@/assets/img/article/jd.jpg");
         this.images.sj = require("@/assets/img/article/sj.jpg");
+        this.images.daxue = require("@/assets/img/article/daxue.png");
         
         // 为文章设置图片路径
-        this.articles[1].img_src = this.images.lqtzs;
-        this.articles[2].img_src = this.images.qx;
-        this.articles[3].img_src = this.images.dx;
-        this.articles[4].img_src = this.images.jx;
-        this.articles[5].img_src = this.images.xyms;
-        this.articles[6].img_src = this.images.jqsj1;
-        this.articles[7].img_src = this.images.sf;
-        this.articles[8].img_src = this.images.dgb;
-        this.articles[10].img_src = this.images.sm;
-        this.articles[11].img_src = this.images.twm;
-        this.articles[12].img_src = this.images.lqb;
-        this.articles[13].img_src = this.images.oneplusx;
-        this.articles[14].img_src = this.images.jz;
-        this.articles[15].img_src = this.images.xm;
-        this.articles[16].img_src = this.images.jd;
-        this.articles[17].img_src = this.images.sj;
+        this.articles[1].img_src = this.images.jx;
+        this.articles[2].img_src = this.images.xyms;
+        this.articles[3].img_src = this.images.jqsj1;
+        this.articles[4].img_src = this.images.sf;
+        this.articles[5].img_src = this.images.dgb;
+        this.articles[7].img_src = this.images.sm;
+        this.articles[8].img_src = this.images.twm;
+        this.articles[9].img_src = this.images.lqb;
+        this.articles[10].img_src = this.images.oneplusx;
+        this.articles[11].img_src = this.images.jz;
+        this.articles[12].img_src = this.images.xm;
+        this.articles[13].img_src = this.images.jd;
+        this.articles[14].img_src = this.images.daxue;
+        this.articles[15].img_src = this.images.sj;
       } catch (error) {
         console.error('图片加载失败:', error);
       }

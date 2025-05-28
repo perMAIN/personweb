@@ -1,0 +1,349 @@
+部署
+免费工具
+Vercel   
+步骤1：注册并登录Vercel
+1. 访问 Vercel官网 并注册账户。
+2. 登录后，点击“New Project”按钮。
+步骤2：连接GitHub仓库
+3. 在Vercel的“New Project”页面，选择“Import Git Repository”。
+4. 授权Vercel访问你的GitHub账户。
+5. 选择你的GitHub仓库。
+步骤3：配置项目
+6. 框架预设：如果你的项目是基于Next.js、React等框架，Vercel会自动检测并选择合适的框架预设。如果不是，可以选择“Other”。
+7. 根目录：确保根目录设置正确（通常是项目根目录）。
+8. 环境变量：如果有需要，可以在这里添加环境变量。
+步骤4：部署
+9. 点击“Deploy”按钮。
+10. Vercel会自动拉取代码并开始构建和部署。
+11. 部署完成后，你会得到一个部署链接，可以通过该链接访问你的网站。
+12. 删除
+[图片]
+Netlify
+删除：站点配置---危险区域
+步骤1：注册并登录Netlify
+13. 访问 Netlify官网 并注册账户。
+14. 登录后，点击“New site from Git”按钮。
+步骤2：连接GitHub仓库
+15. 在Netlify的“New site from Git”页面，选择GitHub作为代码托管平台。
+16. 授权Netlify访问你的GitHub账户。
+17. 选择你的GitHub仓库。
+步骤3：配置项目
+18. 构建命令：根据你的项目类型设置构建命令。例如：
+  - 对于React项目：npm run build
+  - 对于Vue项目：npm run build
+  - 对于静态HTML项目：留空
+19. 发布目录：设置构建后的输出目录。例如：
+  - 对于React项目：build
+  - 对于Vue项目：dist
+  - 对于静态HTML项目：public 或根目录
+20. 环境变量：如果有需要，可以在这里添加环境变量。
+步骤4：部署
+21. 点击“Deploy site”按钮。
+22. Netlify会自动拉取代码并开始构建和部署。
+23. 部署完成后，你会得到一个部署链接，可以通过该链接访问你的网站。
+Netlify Drop 
+Drop | Netlify
+[图片]
+
+云服务
+nextjs服务
+caddy域名解析+pm2部署服务
+1. 配置Caddy
+安装工具：sudo apt install -y debian-keyring debian-archive-keyring apt-transport-https curl
+下载 Caddy 的 GPG 公钥 | 将公钥转换为二进制格式并保存：curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/gpg.key' | sudo gpg --dearmor -o /usr/share/keyrings/caddy-stable-archive-keyring.gpg
+下载 Caddy 的 APT 仓库配置文件 | 文件内容写入到 caddy-stable.list 指定软件包来源：curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/debian.deb.txt' | sudo tee /etc/apt/sources.list.d/caddy-stable.list
+下载caddy：
+sudo apt update
+sudo apt install caddy
+2. github下载文件：
+git clone https://github.com/xxx --depth 1 
+-depth 1 只克隆最近一次提交的内容，而不是整个仓库的历史记录，这样可以大大减少克隆的时间和磁盘空间占用，尤其是对于大型仓库（但是只包含最近一次提交，你无法访问仓库的完整历史记录，无法回滚到之前状态）
+3. 配依赖：
+先配node才有pnpm
+fnm：Fast Node Manager
+curl -o- https://fnm.vercel.app/install | bash fnm install 22 # 安装 Node.js 的 22 版本
+curl -fsSL https://get.pnpm.io/install.sh | sh -
+corepack enable pnpm # 启动pnpm
+node -v;pnpm -v
+source /home/ubuntu/.bashrc # 重载环境
+fnm use 22;cd 项目目录/;pnpm install
+4. pm2 部署 nextjs 服务：
+pnpm install pm2 -g
+pnpm run build
+pm2 logs 程序名 // 查看日志
+pm2 logs 程序名 --lines 100 // 最近100行
+pm2 logs 程序名 --err // 错误日志
+5. caddy 将域名指向某个端口：
+编写Caddyfile和Makefile
+Caddyfile 域名重定向配置，用于告诉 Caddy 如何处理不同域名的请求；
+你的域名 {
+    指令1
+    指令2
+}
+Makefile域名配置脚本文件，包含常用命令的脚本文件，用于简化操作，包含了安装 Caddy、启动服务、重新加载配置等命令
+命令名:
+    具体执行的命令
+sudo caddy start;sudo caddy stop;sudo caddy restart;sudo caddy reload
+make server #启动Makefile
+python服务
+1. 准备服务器环境：
+sudo apt update && sudo apt upgrade -y # 更新系统包
+sudo apt install -y git python3 python3-pip python3-venv # 安装必要工具
+2. uv包管理器
+1）包下载
+window
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+linux
+curl -LsSf https://astral.sh/uv/install.sh | sh # 翻墙下
+pip（先进入python虚拟环境才可以用pip 因为用的python）
+pip install uv（可以用这个 会在python的虚拟环境下）
+3. 克隆github代码
+4. 创建虚拟环境：
+python3 -m venv venv # 创建虚拟环境
+source venv/bin/activate # 激活虚拟环境
+deactivate # 退出虚拟环境
+pip install -r requirements.txt # 安装依赖
+pip install pipreqs 安装工具
+pipreqs ./ --encoding=utf8 --force，项目底下执行命令即生成requirement.txt文件
+扩展：conda创建python虚拟环境
+创建：conda create --name 环境名 python=3.8
+激活：conda activate 环境名
+查看所有：conda env list
+删除：conda remove --name 环境名 --all
+问题：
+1. 创建失败CondaValueError: Malformed version string '~': invalid character(s).---C:\Users\xxx\.condarc内容清华镜像源如下，https改为http，或者直接里面内容全删了
+.condarc内容如下
+ssl_verify: false
+channels:
+  - conda-forge
+  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
+  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/
+  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge/
+  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/msys2/
+  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/bioconda/
+  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/menpo/
+  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch/
+  - defaults
+show_channel_urls: true
+5. 配置环境变量：
+cp .env.example .env;vim .env # 创建.env文件
+iconv -f UTF-16LE -t UTF-8 .env > .env.utf8 # 解决环境变量编码问题
+mv .env.utf8 .env
+file -i .env # 应该显示.env: text/plain; charset=utf-8
+6. 测试：
+确保虚拟环境已激活source venv/bin/activate
+python main.py # 确保代码没问题和依赖版本正确
+pip show lark_oapi # 查版本命令
+pip uninstall -y lark-oapi 
+pip install lark-oapi==1.4.13 # 改版本命令
+7. 设置服务持久化运行：
+1）使用Supervisor管理进程
+sudo apt install -y supervisor
+sudo vim /etc/supervisor/conf.d/feishu-bot.conf # 创建配置文件
+要sudo才能创建！！
+2）将以下内容添加到配置文件中
+[program:feishu-bot]
+
+directory=/home/ubuntu/projects/feishu-bot
+
+command=/home/ubuntu/projects/feishu-bot/venv/bin/python main.py
+
+autostart=true
+
+autorestart=true
+
+stderr_logfile=/var/log/feishu-bot.err.log
+
+stdout_logfile=/var/log/feishu-bot.out.log
+
+user=ubuntu
+
+environment=PYTHONUNBUFFERED=1
+3）启动服务
+sudo supervisorctl reread # 重新加载配置
+sudo supervisorctl update
+sudo supervisorctl start feishu-bot # 启动服务
+8. 检查服务状态：
+sudo supervisorctl status feishu-bot
+sudo tail -f /var/log/feishu-bot.out.log
+Github
+（若为大型项目，选择对应fork分支）git clone https://github.com/xx/xxx.git
+恢复到某个提交节点git reset --hard <commit_id>
+获取最新修改git pull
+可以下载github单独文件download-directory.github.io 
+Git pull错误
+1. 本地有未提交的文件
+From https://github.com/hackathonweekly/WeeklyZen
+   5f40bba..1b7bbbb  main       -> origin/main
+Updating 5f40bba..1b7bbbb
+error: Your local changes to the following files would be overwritten by merge:
+        package.json
+Please commit your changes or stash them before you merge.
+Aborting
+1）提交本地更改：
+git status // 查看未提交的更改
+git add 未提交的文件
+git commit -m "xxx"
+git pull
+2）暂存本地更改：
+git stash // 暂存更改
+git pull // 拉取远程更改
+git stash pop // 恢复暂存的更改
+3）丢弃本地更改：
+git reset --hard // 丢弃
+git pull
+4）手动解决冲突：
+git fetch origin // 强制拉取远程更改
+git status // 查看冲突文件
+手动编辑冲突文件（打开冲突文件，手动解决冲突。冲突部分通常会用 <<<<<<<、======= 和 >>>>>>> 标记）
+git add 冲突文件
+git commit // 完成合并
+撤回提交
+git reset --hard id（历史提交节点中，选择即左上角可复制id，会回到这个id上）
+本地、远程仓库都会回到这个节点
+搭梯子
+让腾讯云服务器通过你的电脑科学上网（反向代理）
+很多时候，我们可能需要在腾讯云或其他云服务器上访问一些在特定区域受限的网站或服务（比如下载一些国外的软件包）。如果你的个人电脑已经配置好了科学上网工具（比如 Clash），那么本教程将指导你如何让你的云服务器也能共享你电脑的科学上网能力。
+我们将利用一种叫做 SSH 远程端口转发 的技术，简单来说，就是在你的电脑和云服务器之间建立一条安全的"隧道"，让服务器上的网络请求可以通过这条隧道，经由你电脑上的 Clash 软件，最终访问到互联网。
+
+需要的准备：
+1. 一台可以科学上网的电脑：
+  - 安装了 Clash 客户端软件（或其他类似代理软件）。
+  - Clash 已经配置好并且可以正常使用，能够访问例如 Google 等网站。
+2. 一台腾讯云服务器（或其他任何 Linux 云服务器）：
+  - 你知道服务器的 IP 地址、用户名（例如 ubuntu 或 root）。
+  - 你能够通过 SSH 登录到这台服务器。
+
+操作步骤：
+确认你电脑的 Clash 设置
+1. 开启 Clash 的 TUN 模式：
+  - 什么是 TUN 模式？ TUN 模式可以让 Clash 接管你电脑上所有的网络流量（或者说，创建一个虚拟网卡），这样一来，即使是终端（命令行界面）里的程序也能通过 Clash 访问网络。
+  - 为什么要开启？ 我们需要确保你电脑的终端可以科学上网，这是后续步骤的基础。
+  - 如何确认？ 打开你电脑的终端（比如 macOS 的 Terminal 或者 Windows 的 PowerShell/CMD），输入以下命令：wget 或 ping google.com ，没有出现网络错误，说明你的终端已经可以通过 Clash 科学上网了。如果失败，请检查你的 Clash 是否开启了 TUN 模式或增强模式，并确保 Clash 本身运行正常。
+2. 找到 Clash 的代理端口：
+  - 什么是端口？ 想象一下，你的电脑是一个大厦，有很多门（端口）。每个网络服务（比如 Clash）都会监听一个特定的门，等待其他程序通过这个门来发送和接收数据。
+  - Clash 的端口是多少？ 一般来说，Clash 的 HTTP 代理端口是 7890。你可以在 Clash 软件的设置界面找到它。有些 Clash 客户端（如 Clash Verge）在复制代理设置时会显示如下信息，其中就包含了端口号：
+设置中显示有端口设置
+export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 
+all_proxy=socks5://127.0.0.1:7890
+//这里的 7890 就是我们要找的端口。127.0.0.1 代表本机地址。
+  
+在你电脑上建立到云服务器的 SSH 隧道
+在你的个人电脑的终端中执行autossh -M 20004 -fNTR 10809:localhost:7890 ubuntu@11.22.33.44。
+sudo apt update
+sudo apt install autossh
+ubuntu@11.22.33.44 替换成云服务器实际用户名和 IP 地址
+7890 替换成你在上一步中找到的 Clash 实际端口号（如果不同的话）。
+- 命令解释：
+  - autossh: 这是一个 SSH 的辅助工具，它能帮助我们保持 SSH 连接的稳定。如果连接意外断开，autossh 会尝试自动重新连接。
+  - -M 20004: autossh 会使用 20004 和 20005 (20004+1) 这两个端口来监控 SSH 连接的健康状况。你可以选择其他未被占用的端口。
+  - -f: 表示 SSH 连接成功后，在后台运行。
+  - -N: 表示不执行远程命令。我们仅仅用 SSH 来转发端口，不需要在服务器上运行任何特定程序。
+  - -T: 禁止分配伪终端。
+  - -R 10809:localhost:7890: 这是最核心的部分，即远程端口转发。
+    - -R 表示远程端口转发。
+    - 10809: 这是我们指定在云服务器上开启的端口。当服务器上的程序向这个 10809 端口发送数据时，这些数据会被转发。
+    - localhost:7890: localhost 在这里指的是你个人电脑的 localhost（即 127.0.0.1），7890 是你电脑上 Clash 正在监听的端口。
+    - 合起来理解：这条指令告诉 SSH，请在远程服务器（ubuntu@11.22.33.44）上监听 10809 端口。任何发送到服务器 10809 端口的数据，都通过这条 SSH 安全隧道，转发到你本地电脑的 7890 端口（也就是 Clash 正在监听的端口）。
+  - ubuntu@11.22.33.44: 你的云服务器的登录用户名和 IP 地址。
+执行此命令后，系统可能会提示你输入云服务器的登录密码（除非你配置了 SSH 免密登录）。
+
+在你的云服务器上配置代理
+现在，SSH 隧道已经建立好了。最后一步是在你的腾讯云服务器上，告诉系统上运行的程序（比如 wget, curl, apt 等）使用我们刚刚通过隧道打通的本地代理。
+登录到你的云服务器，然后在服务器的终端执行以下命令：
+export http_proxy=http://127.0.0.1:10809 && export https_proxy=http://127.0.0.1:10809
+- 命令解释：
+  - export http_proxy=http://127.0.0.1:10809: 这行命令设置了一个名为 http_proxy 的环境变量。它告诉那些需要通过 HTTP 协议访问网络的程序，应该把它们的网络请求发送到 http://127.0.0.1:10809。
+    - 127.0.0.1 在服务器上指的是服务器自己。
+    - 10809 正是我们在上一步中通过 -R 参数在服务器上开启并监听的端口。
+  - export https_proxy=http://127.0.0.1:10809: 同理，这行为 HTTPS 协议的网络请求设置代理。
+重要提示：通过 export 设置的环境变量只在当前的终端会话中有效。如果你关闭了这个终端窗口或者重启了服务器，这些设置就会失效。如果希望永久生效，需要将这两行命令添加到你的 shell 配置文件中（例如 ~/.bashrc 或 ~/.zshrc），然后执行 source ~/.bashrc (或相应的配置文件) 使其生效。
+
+验证：
+在你的云服务器上，执行以下命令：curl www.google.com 或 wget www.google.com
+如果你能看到 Google 首页的 HTML 内容被打印出来，或者 index.html 文件被成功下载，那么恭喜你，你的云服务器已经可以通过你电脑的 Clash 科学上网了！
+你也可以尝试访问一些平常在服务器上无法直接访问的资源，例如：
+curl cip.cc
+这个命令会显示你当前的出口 IP 地址。如果设置成功，显示的应该是你本地电脑科学上网线路的 IP，而不是云服务器的 IP。
+
+工作原理简介：神奇的 SSH 远程端口转发
+整个过程的核心就是 SSH 远程端口转发 (-R 选项)。
+1. 建立连接：你的电脑通过 autossh (底层是 ssh) 与云服务器建立了一个加密的、安全的连接。
+2. 指定转发规则：在建立连接时，你告诉服务器："请你在你自己（服务器）的 10809 端口上听着。任何人跟你这个端口说话，你都把话原封不动地通过咱们这条 SSH 隧道传给我（你的电脑），我会把话交给在我这儿的 localhost:7890 (也就是 Clash)。"
+3. 服务器上的程序使用代理：当你在服务器上设置了 http_proxy 和 https_proxy 为 http://127.0.0.1:10809 后，服务器上的程序（如 curl）就会把网络请求发送给服务器自己的 10809 端口。
+4. 数据通过隧道传输：根据第 2 步的规则，服务器收到的这些请求会通过 SSH 隧道被安全地转发到你个人电脑的 7890 端口。
+5. Clash 处理请求：你电脑上的 Clash 软件在 7890 端口接收到这些请求，然后像处理你本地电脑的其他网络请求一样，通过它的代理规则将请求发送到目标网站（比如 Google）。
+6. 响应返回：目标网站的响应会沿着相反的路径，通过 Clash，再通过 SSH 隧道，回到云服务器上的程序。
+这样，云服务器就间接地使用了你电脑上的科学上网能力。
+
+本地window
+ssh -f -N -R 0.0.0.0:10808:localhost:7897 ubuntu@11.22.33.44
+-f后台运行，可关闭窗口
+SSH 远程端口转发只监听 127.0.0.1 (本地回环接口)。需要修改为监听所有接口或指定接口0.0.0.0
+免密
+ssh-keygen -t rsa -b 4096
+type %USERPROFILE%\.ssh\id_rsa.pub | ssh ubuntu@11.22.33.44 "mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys"
+云服务
+export http_proxy=http://127.0.0.1:10808 && export https_proxy=http://127.0.0.1:10808
+vim ~/.bashrc;source ~/.bashrc
+ps1执行脚本
+   # 保存为 autossh.ps1
+   while ($true) {
+       ssh -f -N -R 0.0.0.0:10808:localhost:7897 ubuntu@11.22.33.44
+       Start-Sleep -Seconds 5
+   }
+测试
+curl -v http://127.0.0.1:10808   测试本地ssh连接
+curl -v -x http://127.0.0.1:10808 http://www.google.com 
+curl http://www.google.com  测试代理环境变量http_proxy
+
+window子系统linux
+本意用子系统实现云服务科学上网，结果wsl与window主系统两者的网络环境是相对隔离的！
+[图片]
+安装指南：安装 WSL | Microsoft Learn
+wsl --install # 适用于 Linux 的 Windows 子系统
+wsl --list --online 或 wsl -l -o # 查看可安装的发行版本
+wsl --install -d <选择发行版本> # 如Ubuntu-22.04（选用发行版本或初始使用都用这个）
+# 其他看安装指南
+github下载很慢解决办法
+https://store.rg-adguard.net/ 
+微软商店下载很麻烦，这个网站输入微软商店应用链接即可获取免登陆的下载链接
+[图片]
+- 第一个下拉框选择：ProductId
+- 文本框输入：9PN20MSR04DW
+- 第二个下拉框选择：Retail
+- 点击 “✔ 生成链接”
+- 下载 .AppxBundle 或 .appxbundle 后缀
+CanonicalGroupLimited.Ubuntu22.04LTS_2204.5.10021.0_neutral_~_79rhkp1fndgsc.AppxBundle
+- 创建程序目录D:\wsl，添加以上文件和install_wsl_script.ps1（安装脚本），通过powershell管理员身份进入这个目录执行这个脚本
+# install_wsl_script.ps1
+# 查找目录中的 AppxBundle 文件
+$appxBundle = Get-ChildItem -Filter *.AppxBundle | Select-Object -First 1
+
+# 如果找到文件，则安装它
+if ($appxBundle) {
+    Write-Host "找到安装包：$($appxBundle.Name)" -ForegroundColor Green
+    Write-Host "正在安装 Ubuntu 22.04 LTS..." -ForegroundColor Yellow
+    Add-AppxPackage -Path $appxBundle.FullName
+} else {
+    Write-Host "未找到 .AppxBundle 文件" -ForegroundColor Red
+}
+报以下错误，是因为尝试安装 WSL 2 但系统缺少必要的 Linux 内核组件
+访问 https://aka.ms/wsl2kernel ，下载 "WSL2 Linux 内核更新包适用于 x64 计算机"，再次执行脚本
+[图片]
+
+域名解析
+用 cloudflare 或 netlify 来管理域名的DNS解析，国内的DNS解析必须备案，只能用国外的DNS服务
+腾讯云等购买域名
+修改DNS服务器：腾讯云 控制台----域名----我的域名---选择域名----修改DNS服务如下
+改为以下，原先的删掉
+dayana.ns.cloudflare.com
+clyde.ns.cloudflare.com
+使用 Cloudflare Dashboard | Manage Your Account 实现DNS解析：（失败）
+进入首页----添加域名----选择添加的域名---DNS---记录---添加记录
+A+@+ip地址；CNAME+@+旧域名（更改域名）；URL+@+链接（实现重定向）
+@可以修改即子域名
+使用 Cloudflare Dashboard | Manage Your Account 实现301/302重定向：
+301永久重定向，302临时重定向
+进入首页----添加域名----选择添加的域名---rules---pages rules---url填写www.你的域名/*----选择Forwarding URL转发URL + 301或302----填写目标网址
+[图片]
