@@ -80,6 +80,15 @@ export default {
       },
       articles: [
         {
+          sub_title: "2025年1月至6月",
+          main_title: "半年实习",
+          explain: "深航 周周冥想 自学JAVA",
+          sum_content: "坚持加入IT大队！",
+          main_content:
+            "为了积累原始资金和扎实基础，选择半年的深航行政文员，我探索工作流，提高工作效率，为能多出空余时间学习巩固JAVA，此外也加入周周冥想公司兼职web开发，学习收获当下一些流行技术，颇有收获，也收集整理个人知识库。可以访问togetsu.online了解更多！在此为纪念！",
+          img_src: "",
+        },
+        {
           sub_title: "2022至2025",
           main_title: "大学三年",
           explain: "机器视觉 全栈开发（JAVA） 云计算 数据分析",
@@ -260,22 +269,24 @@ export default {
         this.images.jd = require("@/assets/img/article/jd.jpg");
         this.images.sj = require("@/assets/img/article/sj.jpg");
         this.images.daxue = require("@/assets/img/article/daxue.png");
+        this.images.sx = require("@/assets/img/article/sx.jpg");
         
         // 为文章设置图片路径
-        this.articles[1].img_src = this.images.jx;
-        this.articles[2].img_src = this.images.xyms;
-        this.articles[3].img_src = this.images.jqsj1;
-        this.articles[4].img_src = this.images.sf;
-        this.articles[5].img_src = this.images.dgb;
-        this.articles[7].img_src = this.images.sm;
-        this.articles[8].img_src = this.images.twm;
-        this.articles[9].img_src = this.images.lqb;
-        this.articles[10].img_src = this.images.oneplusx;
-        this.articles[11].img_src = this.images.jz;
-        this.articles[12].img_src = this.images.xm;
-        this.articles[13].img_src = this.images.jd;
-        this.articles[14].img_src = this.images.daxue;
-        this.articles[15].img_src = this.images.sj;
+        this.articles[0].img_src = this.images.sx;
+        this.articles[2].img_src = this.images.jx;
+        this.articles[3].img_src = this.images.xyms;
+        this.articles[4].img_src = this.images.jqsj1;
+        this.articles[5].img_src = this.images.sf;
+        this.articles[6].img_src = this.images.dgb;
+        this.articles[8].img_src = this.images.sm;
+        this.articles[9].img_src = this.images.twm;
+        this.articles[10].img_src = this.images.lqb;
+        this.articles[11].img_src = this.images.oneplusx;
+        this.articles[12].img_src = this.images.jz;
+        this.articles[13].img_src = this.images.xm;
+        this.articles[14].img_src = this.images.jd;
+        this.articles[15].img_src = this.images.daxue;
+        this.articles[16].img_src = this.images.sj;
       } catch (error) {
         console.error('图片加载失败:', error);
       }
